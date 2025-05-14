@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 18: POO Básica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+        }
+
+        li {
+            margin: 10px;
+            padding: 10px;
+            background-color: #FFF3E0;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #FB8C00;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #F57C00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 18: POO Básica</h1>
+    <button onclick="mostrarProductos()">Mostrar Productos</button>
+    <ul id="lista-productos"></ul>
+
+    <script>
+        // Definición de la clase Producto
+        class Producto {
+            // Constructor que recibe nombre y precio
+            constructor(nombre, precio) {
+                this.nombre = nombre;
+                this.precio = precio;
+            }
+        }
+
+        // Función para mostrar los productos en la lista
+        function mostrarProductos() {
+            // Creamos un array de objetos Producto
+            const productos = [
+                new Producto("Laptop", 1200),
+                new Producto("Teléfono", 600),
+                new Producto("Tablet", 300)
+            ];
+
+            // Accedemos al contenedor de la lista de productos
+            const lista = document.getElementById("lista-productos");
+
+            // Limpiamos la lista antes de agregar los productos
+            lista.innerHTML = '';
+
+            // Usamos map para crear el HTML de cada producto y agregarlo a la lista
+            lista.innerHTML = productos.map(producto => `
+                <li>${producto.nombre} - $${producto.precio}</li>
+            `).join("");
+        }
+    </script>
+</body>
+</html>

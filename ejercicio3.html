@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3: Operadores Aritméticos</title>
+  <style>
+    :root {
+      --primary-color: #00bcd4;
+      --primary-hover: #008c9e;
+      --background-dark: #0d1b2a;
+      --card-dark: #1b263b;
+      --text-light: #ffffff;
+      --accent-color: #4dd0e1;
+      --border-radius: 15px;
+      --padding: 12px 20px;
+      --gap: 12px;
+      --font-size: 16px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-dark);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    .card {
+      background-color: var(--card-dark);
+      border: 1px solid #2d3e50;
+      border-radius: var(--border-radius);
+      padding: 25px;
+      width: 100%;
+      max-width: 700px;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      border: none;
+      border-radius: var(--border-radius);
+      padding: var(--padding);
+      font-size: var(--font-size);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ejercicio 3: Operadores Aritméticos</h1>
+  <p>Descripción: En este ejercicio, aprenderás a usar los operadores aritméticos básicos en JavaScript. Se muestran las operaciones de suma, resta, multiplicación, división y módulo entre dos números.</p>
+
+  <div class="card">
+    <h2>Resultado</h2>
+    <p id="suma"></p>
+    <p id="resta"></p>
+    <p id="multiplicacion"></p>
+    <p id="division"></p>
+    <p id="modulo"></p>
+  </div>
+
+  <script>
+    let a = 12;
+    let b = 5;
+
+    document.getElementById("suma").textContent = `Suma: ${a} + ${b} = ${a + b}`;
+    document.getElementById("resta").textContent = `Resta: ${a} - ${b} = ${a - b}`;
+    document.getElementById("multiplicacion").textContent = `Multiplicación: ${a} * ${b} = ${a * b}`;
+    document.getElementById("division").textContent = `División: ${a} / ${b} = ${(a / b).toFixed(2)}`;
+    document.getElementById("modulo").textContent = `Módulo: ${a} % ${b} = ${a % b}`;
+  </script>
+</body>
+</html>

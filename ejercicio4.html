@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 4: Condicionales</title>
+  <style>
+    :root {
+      --primary-color: #00bcd4;
+      --primary-hover: #008c9e;
+      --background-dark: #0d1b2a;
+      --card-dark: #1b263b;
+      --text-light: #ffffff;
+      --accent-color: #4dd0e1;
+      --border-radius: 15px;
+      --padding: 12px 20px;
+      --gap: 12px;
+      --font-size: 16px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-dark);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--primary-hover);
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 20px;
+      color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Verifica tu Edad</h1>
+  <p>Descripción: Este ejercicio se enfoca en el uso de estructuras condicionales (`if`, `else`) en JavaScript para verificar si un número (en este caso, la edad de una persona) cumple con ciertas condiciones. El código verifica si la persona es mayor o menor de edad.</p>
+  
+  <p>Introduce tu edad y te diremos si eres mayor de edad:</p>
+  <input type="number" id="edad" placeholder="Escribe tu edad" />
+  <button onclick="verificarEdad()">Verificar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function verificarEdad() {
+      const edad = parseInt(document.getElementById('edad').value);
+      const resultado = document.getElementById('resultado');
+
+      if (isNaN(edad)) {
+        resultado.textContent = "Por favor, introduce un número válido.";
+      } else if (edad >= 18) {
+        resultado.textContent = "Eres mayor de edad.";
+      } else {
+        resultado.textContent = "Eres menor de edad.";
+      }
+    }
+  </script>
+
+</body>
+</html>

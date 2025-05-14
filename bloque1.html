@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 10: Calculadora</title>
+    <style>
+    :root {
+      --primary-color: #00bcd4;
+      --primary-hover: #008c9e;
+      --background-dark: #0d1b2a;
+      --card-dark: #1b263b;
+      --text-light: #ffffff;
+      --accent-color: #4dd0e1;
+      --border-radius: 15px;
+      --padding: 12px 20px;
+      --gap: 12px;
+      --font-size: 16px;
+    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #00bcd4;
+        }
+
+        p.objetivo {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .calculadora {
+            display: inline-block;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00bcd4;
+            max-width: 300px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #fff;
+        }
+
+        button {
+            background-color: #00bcd4;
+            color: white;
+            padding: 10px 20px;
+            margin: 8px 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0097a7;
+        }
+
+        #resultado {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #2c2c2c;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .navegacion {
+            margin-top: 30px;
+        }
+
+        .navegacion a {
+            margin: 0 10px;
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navegacion a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 10: Calculadora</h1>
+    <p class="objetivo">Objetivo: Crear una calculadora básica que permita realizar operaciones matemáticas simples entre dos números usando botones.</p>
+
+    <div class="calculadora">
+        <input type="number" id="num1" placeholder="Número 1" required>
+        <input type="number" id="num2" placeholder="Número 2" required><br>
+        <button onclick="calcular('suma')">+</button>
+        <button onclick="calcular('resta')">-</button>
+        <button onclick="calcular('multiplicacion')">*</button>
+        <button onclick="calcular('division')">/</button>
+        <p id="resultado"></p>
+    </div>
+
+    <div class="navegacion">
+        <a href="ejercicio9.html">⬅️ Ejercicio 9</a>
+        <a href="ejercicio11.html">Ejercicio 11 ➡️</a>
+    </div>
+
+    <script>
+        function calcular(operacion) {
+            // Obtenemos los valores de los inputs
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            let resultado;
+
+            // Verificamos si los valores son válidos
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("resultado").textContent = "Por favor, ingresa valores numéricos válidos.";
+                document.getElementById("resultado").classList.add("error");
+                return;
+            }
+
+            // Ejecutamos la operación correspondiente
+            switch (operacion) {
+                case "suma":
+                    resultado = num1 + num2;
+                    break;
+                case "resta":
+                    resultado = num1 - num2;
+                    break;
+                case "multiplicacion":
+                    resultado = num1 * num2;
+                    break;
+                case "division":
+                    // Validación para evitar división por cero
+                    if (num2 === 0) {
+                        document.getElementById("resultado").textContent = "Error: No se puede dividir por cero.";
+                        document.getElementById("resultado").classList.add("error");
+                        return;
+                    }
+                    resultado = num1 / num2;
+                    break;
+            }
+
+            // Mostramos el resultado en pantalla
+            document.getElementById("resultado").textContent = `Resultado: ${resultado}`;
+            document.getElementById("resultado").classList.remove("error");
+        }
+    </script>
+</body>
+</html>

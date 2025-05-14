@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 7: Objetos</title>
+  <style>
+    :root {
+      --primary-color: #00bcd4;
+      --primary-hover: #008c9e;
+      --background-dark: #0d1b2a;
+      --card-dark: #1b263b;
+      --text-light: #ffffff;
+      --accent-color: #4dd0e1;
+      --border-radius: 15px;
+      --padding: 12px 20px;
+      --gap: 12px;
+      --font-size: 16px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-dark);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 16px;
+      background-color: var(--primary-color);
+      color: var(--text-light);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--primary-hover);
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ejercicio 7: Objetos</h1>
+  <p>Descripción: En este ejercicio aprenderás a trabajar con objetos en JavaScript. Crearás un objeto con propiedades y métodos, y accederás a esos datos.</p>
+
+  <button onclick="mostrarInfo()">Mostrar información del objeto</button>
+  <p id="resultado"></p>
+
+  <script>
+    const persona = {
+      nombre: "Carlos",
+      edad: 25,
+      ciudad: "Bogotá",
+      saludar: function() {
+        return `Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`;
+      }
+    };
+
+    function mostrarInfo() {
+      const mensaje = persona.saludar();
+      document.getElementById("resultado").textContent = mensaje;
+    }
+  </script>
+
+</body>
+</html>

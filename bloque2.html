@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 20: Lista de Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input:focus, button:focus {
+            border-color: #3f51b5;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #F5F5F5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+        }
+        li:hover {
+            background-color: #e0e0e0;
+        }
+        .completada {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #F44336;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #D32F2F;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 20: Lista de Tareas</h1>
+    
+    <!-- Input para agregar tareas -->
+    <input type="text" id="nuevaTarea" placeholder="Nueva tarea">
+    
+    <!-- Botón para agregar la nueva tarea -->
+    <button onclick="agregarTarea()">Agregar</button>
+
+    <!-- Contenedor de la lista de tareas -->
+    <ul id="listaTareas"></ul>
+
+    <script>
+        // Inicialización de las tareas desde el localStorage (si existen)
+        let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+
+        // Función para renderizar las tareas en la interfaz
+        function renderizarTareas() {
+            const lista = document.getElementById("listaTareas");
+            lista.innerHTML = tareas.map((tarea, index) => `
+                <li class="${tarea.completada ? 'completada' : ''}">
+                    <span onclick="toggleCompletada(${index})">${tarea.texto}</span>
+                    <button onclick="eliminarTarea(${index})">❌</button>
+                </li>
+            `).join("");
+        }
+
+        // Función para agregar una nueva tarea
+        function agregarTarea() {
+            const input = document.getElementById("nuevaTarea");
+            if (input.value.trim() !== "") {
+                // Añadir la nueva tarea al array
+                tareas.push({ texto: input.value, completada: false });
+                // Guardar el array actualizado en el localStorage
+                localStorage.setItem("tareas", JSON.stringify(tareas));
+                input.value = "";  // Limpiar el input
+                renderizarTareas();  // Volver a renderizar la lista
+            }
+        }
+
+        // Función para alternar el estado de completada de una tarea
+        function toggleCompletada(index) {
+            // Cambiar el estado de completada
+            tareas[index].completada = !tareas[index].completada;
+            // Guardar el array actualizado en el localStorage
+            localStorage.setItem("tareas", JSON.stringify(tareas));
+            renderizarTareas();  // Volver a renderizar la lista
+        }
+
+        // Función para eliminar una tarea
+        function eliminarTarea(index) {
+            // Eliminar la tarea del array
+            tareas.splice(index, 1);
+            // Guardar el array actualizado en el localStorage
+            localStorage.setItem("tareas", JSON.stringify(tareas));
+            renderizarTareas();  // Volver a renderizar la lista
+        }
+
+        // Cargar y renderizar las tareas al iniciar la página
+        renderizarTareas();
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 19: Módulos (Expansión)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+        #resultado {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #6A1B9A;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #FB8C00;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #F57C00;
+        }
+        input {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px;
+            width: 150px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejercicio 19: Módulos (Expansión)</h1>
+    
+    <!-- Campos de entrada para los valores -->
+    <input type="number" id="base" placeholder="Base" />
+    <input type="number" id="exponente" placeholder="Exponente" />
+    
+    <!-- Botones para ejecutar diferentes cálculos -->
+    <button onclick="calcularPotencia()">Calcular Potencia</button>
+    <button onclick="calcularSuma()">Calcular Suma</button>
+    <button onclick="calcularResta()">Calcular Resta</button>
+    <button onclick="calcularMultiplicacion()">Calcular Multiplicación</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        // Simulación de un módulo con un objeto llamado "Matematica"
+        const Matematica = {
+            // Función para calcular la potencia (base^exponente)
+            potencia: (base, exponente) => base ** exponente,
+            
+            // Función para calcular la suma de dos números
+            suma: (a, b) => a + b,
+
+            // Función para calcular la resta de dos números
+            resta: (a, b) => a - b,
+
+            // Función para calcular la multiplicación de dos números
+            multiplicacion: (a, b) => a * b
+        };
+
+        // Función para calcular la potencia
+        function calcularPotencia() {
+            const base = parseFloat(document.getElementById("base").value);
+            const exponente = parseFloat(document.getElementById("exponente").value);
+            // Comprobamos que ambos valores son válidos
+            if (isNaN(base) || isNaN(exponente)) {
+                document.getElementById("resultado").textContent = "Por favor, ingrese valores válidos.";
+                return;
+            }
+            // Usamos el método potencia del "módulo" Matematica
+            const resultado = Matematica.potencia(base, exponente);
+            document.getElementById("resultado").textContent = `${base}^${exponente} = ${resultado}`;
+        }
+
+        // Función para calcular la suma
+        function calcularSuma() {
+            const base = parseFloat(document.getElementById("base").value);
+            const exponente = parseFloat(document.getElementById("exponente").value);
+            if (isNaN(base) || isNaN(exponente)) {
+                document.getElementById("resultado").textContent = "Por favor, ingrese valores válidos.";
+                return;
+            }
+            const resultado = Matematica.suma(base, exponente);
+            document.getElementById("resultado").textContent = `${base} + ${exponente} = ${resultado}`;
+        }
+
+        // Función para calcular la resta
+        function calcularResta() {
+            const base = parseFloat(document.getElementById("base").value);
+            const exponente = parseFloat(document.getElementById("exponente").value);
+            if (isNaN(base) || isNaN(exponente)) {
+                document.getElementById("resultado").textContent = "Por favor, ingrese valores válidos.";
+                return;
+            }
+            const resultado = Matematica.resta(base, exponente);
+            document.getElementById("resultado").textContent = `${base} - ${exponente} = ${resultado}`;
+        }
+
+        // Función para calcular la multiplicación
+        function calcularMultiplicacion() {
+            const base = parseFloat(document.getElementById("base").value);
+            const exponente = parseFloat(document.getElementById("exponente").value);
+            if (isNaN(base) || isNaN(exponente)) {
+                document.getElementById("resultado").textContent = "Por favor, ingrese valores válidos.";
+                return;
+            }
+            const resultado = Matematica.multiplicacion(base, exponente);
+            document.getElementById("resultado").textContent = `${base} * ${exponente} = ${resultado}`;
+        }
+    </script>
+</body>
+</html>

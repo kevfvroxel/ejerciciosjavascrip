@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ejercicios JavaScript</title>
+  <style>
+    :root {
+      --primary-color: #2196f3;
+      --primary-hover: #1976d2;
+      --background-color: #1e1e1e;
+      --text-color: #f1f1f1;
+      --border-radius: 8px;
+      --padding: 10px 15px;
+      --gap: 10px;
+      --button-font-size: 16px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      background-color: var(--primary-color);
+      padding: 20px;
+      border-radius: 40px;
+      width: fit-content;
+      margin: 50px auto 30px;
+      color: white;
+    }
+
+    .bloque {
+      margin-bottom: 40px;
+    }
+
+    .bloque h2 {
+      color: var(--text-color);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .lista-ejercicios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap);
+      justify-content: center;
+    }
+
+    .lista-ejercicios button {
+      padding: var(--padding);
+      border: none;
+      background-color: var(--primary-color);
+      color: white;
+      cursor: pointer;
+      border-radius: var(--border-radius);
+      font-size: var(--button-font-size);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: 200px;
+    }
+
+    .lista-ejercicios button:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .lista-ejercicios {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .lista-ejercicios button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejercicios de JavaScript</h1>
+
+  <div class="bloque">
+    <h2>Bloque 1: Principiantes</h2>
+    <div class="lista-ejercicios">
+      <button onclick="window.location.href='ejercicio1.html'">Ejercicio 1</button>
+      <button onclick="window.location.href='ejercicio2.html'">Ejercicio 2</button>
+      <button onclick="window.location.href='ejercicio3.html'">Ejercicio 3</button>
+      <button onclick="window.location.href='ejercicio4.html'">Ejercicio 4</button>
+      <button onclick="window.location.href='ejercicio5.html'">Ejercicio 5</button>
+      <button onclick="window.location.href='ejercicio6.html'">Ejercicio 6</button>
+      <button onclick="window.location.href='ejercicio7.html'">Ejercicio 7</button>
+      <button onclick="window.location.href='ejercicio8.html'">Ejercicio 8</button>
+      <button onclick="window.location.href='ejercicio9.html'">Ejercicio 9</button>
+      <button onclick="window.location.href='ejercicio10.html'">Ejercicio 10</button>
+    </div>
+  </div>
+
+  <div class="bloque">
+    <h2>Bloque 2: Intermedio</h2>
+    <div class="lista-ejercicios">
+      <button onclick="window.location.href='ejercicio11.html'">Ejercicio 11</button>
+      <button onclick="window.location.href='ejercicio12.html'">Ejercicio 12</button>
+      <button onclick="window.location.href='ejercicio13.html'">Ejercicio 13</button>
+      <button onclick="window.location.href='ejercicio14.html'">Ejercicio 14</button>
+      <button onclick="window.location.href='ejercicio15.html'">Ejercicio 15</button>
+      <button onclick="window.location.href='ejercicio16.html'">Ejercicio 16</button>
+      <button onclick="window.location.href='ejercicio17.html'">Ejercicio 17</button>
+      <button onclick="window.location.href='ejercicio18.html'">Ejercicio 18</button>
+      <button onclick="window.location.href='ejercicio19.html'">Ejercicio 19</button>
+      <button onclick="window.location.href='ejercicio20.html'">Ejercicio 20</button>
+    </div>
+  </div>
+
+  <div class="bloque">
+    <h2>Bloque 3: Avanzado</h2>
+    <div class="lista-ejercicios">
+      <button onclick="window.location.href='ejercicio21.html'">Ejercicio 21</button>
+      <button onclick="window.location.href='ejercicio22.html'">Ejercicio 22</button>
+      <button onclick="window.location.href='ejercicio23.html'">Ejercicio 23</button>
+      <button onclick="window.location.href='ejercicio24.html'">Ejercicio 24</button>
+      <button onclick="window.location.href='ejercicio25.html'">Ejercicio 25</button>
+    </div>
+  </div>
+</body>
+</html>

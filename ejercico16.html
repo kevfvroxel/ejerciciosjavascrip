@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 16: Reloj Digital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding-top: 80px;
+        }
+
+        #reloj {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🕒 Reloj Digital</h1>
+    <div id="reloj">00:00:00</div>
+
+    <script>
+        // Función para obtener la hora actual en formato HH:MM:SS
+        function obtenerHoraActual() {
+            const ahora = new Date(); // Obtenemos la fecha y hora actual
+            let horas = String(ahora.getHours()).padStart(2, '0');
+            let minutos = String(ahora.getMinutes()).padStart(2, '0');
+            let segundos = String(ahora.getSeconds()).padStart(2, '0');
+
+            return `${horas}:${minutos}:${segundos}`;
+        }
+
+        // Función que actualiza el contenido del div con la hora actual cada segundo
+        function actualizarReloj() {
+            document.getElementById("reloj").textContent = obtenerHoraActual();
+        }
+
+        // Ejecutamos la función cada 1000ms (1 segundo)
+        setInterval(actualizarReloj, 1000);
+
+        // También llamamos la función una vez al inicio para no esperar 1 segundo
+        actualizarReloj();
+    </script>
+
+</body>
+</html>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <title>Ejercicios JavaScript</title>
   <style>
     :root {
@@ -22,6 +23,28 @@
       color: var(--text-color);
       margin: 0;
       padding: 20px;
+    }
+    .tituloNav{
+      position: relative;
+      left: 650px;
+      top: -100px;
+    }
+    .logoKevf{
+      position: relative;
+      left: 50px;
+      padding: 0;
+      margin: 0;
+    }
+    nav{
+      margin: 0;
+      padding: 0;
+      height: 200px;
+      background-color: #1e1e1e;
+    }
+    .nav1{
+      padding: 0;
+      height: 200px;
+      background-color: #1e1e1e;
     }
 
     h1 {
@@ -83,7 +106,14 @@
   </style>
 </head>
 <body>
-  <h1>Ejercicios de JavaScript</h1>
+  <nav class="navbar bg-body-tertiary nav">
+  <div class="container-fluid nav1">
+    <a class="navbar-brand logoKevf" href="index.html">
+      <img src="imagenes/logoKevf.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-top"> <h1 class="tituloNav">Ejercicios de JavaScript</h1>
+    </a>
+  </div>
+  </nav>
+ 
 
   <div class="bloque">
     <h2>Bloque 1: Principiantes</h2>

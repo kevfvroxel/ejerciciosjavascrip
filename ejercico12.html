@@ -101,6 +101,22 @@
       color: var(--background-dark);
       transform: scale(1.05);
     }
+            body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+        }
+        li {
+            margin: 5px;
+            padding: 10px;
+            background-color: #000000;
+            border-radius: 4px;
+        }
 
     @media (max-width: 600px) {
       .nav {
@@ -131,20 +147,18 @@
     </p>
   </div>
 
-  <div class="card">
-    <h2>Resultado</h2>
-    <p>Haz clic en el botón para comprobar si el número es positivo o negativo:</p>
-    <button class="boton" onclick="verificarNumero()">Verificar Número</button>
-    <p id="resultado"></p>
-  </div>
+    <h1>Ejercicio 12: Filtrar Números Pares</h1>
+    <button onclick="filtrarPares()">Mostrar Pares</button>
+    <ul id="numeros"></ul>
 
-  <script>
-    // Esta función verifica si el número es positivo o negativo.
-    function verificarNumero() {
-      let numero = -5;
-      let mensaje = (numero >= 0) ? "El número es positivo." : "El número es negativo.";
-      document.getElementById("resultado").textContent = mensaje;
-    }
-  </script>
+    <script>
+        const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        function filtrarPares() {
+            const pares = numeros.filter(num => num % 2 === 0);
+            const lista = document.getElementById("numeros");
+            lista.innerHTML = pares.map(num => `<li>${num}</li>`).join("");
+        }
+    </script>
 </body>
 </html>

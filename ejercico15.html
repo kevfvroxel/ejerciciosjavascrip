@@ -124,30 +124,31 @@
   </div>
 
   <div class="card">
-    <h2>Ejercicio 15: Objetos</h2>
-    <h3>Objetivo</h3>
-    <p>
-      Aprender a trabajar con objetos en JavaScript.
-    </p>
-  </div>
+    <h1>Ejercicio 15: Notas con LocalStorage</h1>
+    <textarea id="nuevaNota" placeholder="Escribe una nota"></textarea>
+    <button onclick="guardarNota()">Guardar Nota</button>
+    <div id="notas"></div>
 
-  <div class="card">
-    <h2>Resultado</h2>
-    <p>Haz clic en el botón para ver las propiedades de un objeto:</p>
-    <button class="boton" onclick="mostrarObjeto()">Mostrar Objeto</button>
-    <p id="resultado"></p>
-  </div>
+    <script>
+        function guardarNota() {
+            const texto = document.getElementById("nuevaNota").value;
+            if (texto.trim() !== "") {
+                let notas = JSON.parse(localStorage.getItem("notas")) || [];
+                notas.push(texto);
+                localStorage.setItem("notas", JSON.stringify(notas));
+                mostrarNotas();
+                document.getElementById("nuevaNota").value = "";
+            }
+        }
 
-  <script>
-    // Esta función muestra las propiedades de un objeto.
-    function mostrarObjeto() {
-      let persona = {
-        nombre: "Juan",
-        edad: 30,
-        profesion: "Desarrollador"
-      };
-      document.getElementById("resultado").textContent = `La persona es: ${persona.nombre}, edad: ${persona.edad}, profesión: ${persona.profesion}`;
-    }
-  </script>
+        function mostrarNotas() {
+            const notas = JSON.parse(localStorage.getItem("notas")) || [];
+            const contenedor = document.getElementById("notas");
+            contenedor.innerHTML = notas.map(nota => `<div class="nota">${nota}</div>`).join("");
+        }
+
+        // Mostrar notas al cargar la página
+        mostrarNotas();
+    </script>
 </body>
 </html>

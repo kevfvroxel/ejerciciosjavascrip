@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ejercicio 15: Objetos</title>
+  <!-- Configuración básica del documento -->
+  <meta charset="UTF-8" /> <!-- Codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive design -->
+  <title>Ejercicio 15: Objetos</title> <!-- Título de la pestaña -->
+  
   <style>
-    /* Mismo código de estilos */
+    /* Variables CSS para colores y estilos reutilizables */
     :root {
-      --primary-color: #00bcd4;
-      --primary-hover: #008c9e;
-      --background-dark: #0d1b2a;
-      --card-dark: #1b263b;
-      --text-light: #ffffff;
-      --accent-color: #4dd0e1;
-      --border-radius: 15px;
-      --padding: 12px 20px;
-      --gap: 12px;
-      --font-size: 16px;
+      --primary-color: #00bcd4;       /* Color primario azul */
+      --primary-hover: #008c9e;       /* Color primario hover */
+      --background-dark: #0d1b2a;     /* Fondo oscuro */
+      --card-dark: #1b263b;          /* Color de tarjetas */
+      --text-light: #ffffff;          /* Texto blanco */
+      --accent-color: #4dd0e1;        /* Color de acento */
+      --border-radius: 15px;          /* Radio de bordes */
+      --padding: 12px 20px;           /* Relleno estándar */
+      --gap: 12px;                    /* Espaciado entre elementos */
+      --font-size: 16px;              /* Tamaño de fuente base */
     }
 
+    /* Estilos generales del cuerpo */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -30,6 +33,7 @@
       padding: 40px 20px;
     }
 
+    /* Estilos para encabezados */
     h1 {
       font-size: 32px;
       margin-bottom: 10px;
@@ -42,11 +46,13 @@
       color: var(--primary-color);
     }
 
+    /* Estilos para párrafos */
     p {
       font-size: 18px;
       line-height: 1.5;
     }
 
+    /* Estilo de la tarjeta principal */
     .card {
       background-color: var(--card-dark);
       border: 1px solid #2d3e50;
@@ -59,6 +65,7 @@
       text-align: center;
     }
 
+    /* Estilo de botones principales */
     .boton {
       background-color: var(--primary-color);
       color: var(--text-light);
@@ -71,11 +78,13 @@
       margin-top: 15px;
     }
 
+    /* Efecto hover para botones */
     .boton:hover {
       background-color: var(--primary-hover);
       transform: translateY(-2px);
     }
 
+    /* Barra de navegación */
     .nav {
       display: flex;
       justify-content: center;
@@ -84,6 +93,7 @@
       margin-top: 20px;
     }
 
+    /* Botones de navegación */
     .nav button {
       background-color: var(--card-dark);
       color: var(--accent-color);
@@ -96,32 +106,32 @@
       width: 160px;
     }
 
+    /* Efecto hover para botones de navegación */
     .nav button:hover {
       background-color: var(--accent-color);
       color: var(--background-dark);
       transform: scale(1.05);
     }
-            body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 20px;
-        }
-        textarea, button {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-        }
-        #notas {
-            margin-top: 20px;
-        }
-        .nota {
-            background-color: #000000;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-        }
 
+    /* Estilos específicos para el área de notas */
+    textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+    }
+
+    #notas {
+      margin-top: 20px;
+    }
+
+    .nota {
+      background-color: #000000;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+
+    /* Media query para diseño responsive */
     @media (max-width: 600px) {
       .nav {
         flex-direction: column;
@@ -134,41 +144,87 @@
     }
   </style>
 </head>
-<body>
 
+<body>
+  <!-- Título principal -->
   <h1>Bloque 3: Objetos</h1>
 
+  <!-- Barra de navegación -->
   <div class="nav">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercico16.html'">Ejercicio 16</button>
   </div>
 
+  <!-- Contenedor principal -->
   <div class="card">
     <h1>Ejercicio 15: Notas con LocalStorage</h1>
+    
+    <!-- Área para escribir nuevas notas -->
     <textarea id="nuevaNota" placeholder="Escribe una nota"></textarea>
-    <button onclick="guardarNota()">Guardar Nota</button>
+    
+    <!-- Botón para guardar notas -->
+    <button onclick="guardarNota()" class="boton">Guardar Nota</button>
+    
+    <!-- Contenedor donde se mostrarán las notas -->
     <div id="notas"></div>
 
+    <!-- Código JavaScript -->
     <script>
-        function guardarNota() {
-            const texto = document.getElementById("nuevaNota").value;
-            if (texto.trim() !== "") {
-                let notas = JSON.parse(localStorage.getItem("notas")) || [];
-                notas.push(texto);
-                localStorage.setItem("notas", JSON.stringify(notas));
-                mostrarNotas();
-                document.getElementById("nuevaNota").value = "";
-            }
+      /**
+       * Función para guardar una nueva nota
+       * 1. Obtiene el texto del textarea
+       * 2. Valida que no esté vacío
+       * 3. Recupera las notas existentes del localStorage
+       * 4. Agrega la nueva nota al array
+       * 5. Guarda el array actualizado en localStorage
+       * 6. Actualiza la visualización
+       * 7. Limpia el textarea
+       */
+      function guardarNota() {
+        // Obtiene el texto del textarea
+        const texto = document.getElementById("nuevaNota").value;
+        
+        // Valida que el texto no esté vacío (eliminando espacios en blanco)
+        if (texto.trim() !== "") {
+          // Obtiene las notas existentes o inicializa un array vacío si no hay
+          let notas = JSON.parse(localStorage.getItem("notas")) || [];
+          
+          // Agrega la nueva nota al array
+          notas.push(texto);
+          
+          // Guarda el array actualizado en localStorage (convertido a string)
+          localStorage.setItem("notas", JSON.stringify(notas));
+          
+          // Actualiza la visualización de notas
+          mostrarNotas();
+          
+          // Limpia el textarea
+          document.getElementById("nuevaNota").value = "";
         }
+      }
 
-        function mostrarNotas() {
-            const notas = JSON.parse(localStorage.getItem("notas")) || [];
-            const contenedor = document.getElementById("notas");
-            contenedor.innerHTML = notas.map(nota => `<div class="nota">${nota}</div>`).join("");
-        }
+      /**
+       * Función para mostrar todas las notas guardadas
+       * 1. Obtiene las notas del localStorage
+       * 2. Genera HTML para cada nota
+       * 3. Muestra las notas en el contenedor designado
+       */
+      function mostrarNotas() {
+        // Obtiene las notas del localStorage o array vacío si no hay
+        const notas = JSON.parse(localStorage.getItem("notas")) || [];
+        
+        // Obtiene el contenedor donde se mostrarán las notas
+        const contenedor = document.getElementById("notas");
+        
+        // Genera HTML para cada nota y las une en un solo string
+        contenedor.innerHTML = notas.map(nota => 
+          `<div class="nota">${nota}</div>`
+        ).join("");
+      }
 
-        // Mostrar notas al cargar la página
-        mostrarNotas();
+      // Muestra las notas al cargar la página
+      mostrarNotas();
     </script>
+  </div>
 </body>
 </html>

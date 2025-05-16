@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ejercicio 13: Funciones</title>
   <style>
+            body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+        input, button {
+            padding: 8px;
+            font-size: 16px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+        }
+        li {
+            margin: 5px;
+            padding: 8px;
+            background-color: #FFECB3;
+            border-radius: 4px;
+        }
     /* Mismo código de estilos */
     :root {
       --primary-color: #00bcd4;
@@ -95,7 +115,7 @@
       font-size: var(--font-size);
       width: 160px;
     }
-
+    
     .nav button:hover {
       background-color: var(--accent-color);
       color: var(--background-dark);
@@ -123,29 +143,20 @@
     <button onclick="location.href='ejercico14.html'">Ejercicio 14</button>
   </div>
 
-  <div class="card">
-    <h2>Ejercicio 13: Funciones</h2>
-    <h3>Objetivo</h3>
-    <p>
-      Aprender a declarar funciones en JavaScript para reutilizar bloques de código.
-    </p>
-  </div>
+    <h1>Ejercicio 13: Añadir a Lista</h1>
+    <input type="text" id="item" placeholder="Ingresa un elemento">
+    <button onclick="agregarItem()">Agregar</button>
+    <ul id="lista"></ul>
 
-  <div class="card">
-    <h2>Resultado</h2>
-    <p>Haz clic en el botón para llamar a una función que suma dos números:</p>
-    <button class="boton" onclick="sumarNumeros()">Sumar Números</button>
-    <p id="resultado"></p>
-  </div>
-
-  <script>
-    // Esta función suma dos números y muestra el resultado.
-    function sumarNumeros() {
-      let a = 10;
-      let b = 5;
-      let suma = a + b;
-      document.getElementById("resultado").textContent = `El resultado de la suma es: ${suma}`;
-    }
-  </script>
+    <script>
+        function agregarItem() {
+            const input = document.getElementById("item");
+            const lista = document.getElementById("lista");
+            if (input.value.trim() !== "") {
+                lista.innerHTML += `<li>${input.value}</li>`;
+                input.value = "";
+            }
+        }
+    </script>
 </body>
 </html>

@@ -101,6 +101,24 @@
       color: var(--background-dark);
       transform: scale(1.05);
     }
+            body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
 
     @media (max-width: 600px) {
       .nav {
@@ -123,27 +141,40 @@
     <button onclick="location.href='ejercico15.html'">Ejercicio 15</button>
   </div>
 
-  <div class="card">
-    <h2>Ejercicio 14: Arreglos</h2>
-    <h3>Objetivo</h3>
-    <p>
-      Aprender a declarar y manipular arreglos en JavaScript.
-    </p>
-  </div>
+    <h1>Ejercicio 14: Validar Formulario</h1>
+    <form id="miFormulario">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <p id="error-nombre" class="error"></p>
+        <input type="email" id="email" placeholder="Email">
+        <p id="error-email" class="error"></p>
+        <button type="submit">Enviar</button>
+    </form>
 
-  <div class="card">
-    <h2>Resultado</h2>
-    <p>Haz clic en el botón para ver el contenido de un arreglo:</p>
-    <button class="boton" onclick="mostrarArreglo()">Mostrar Arreglo</button>
-    <p id="resultado"></p>
-  </div>
+    <script>
+        document.getElementById("miFormulario").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById("nombre").value;
+            const email = document.getElementById("email").value;
+            let valido = true;
 
-  <script>
-    // Esta función muestra el contenido de un arreglo.
-    function mostrarArreglo() {
-      let arreglo = [1, 2, 3, 4, 5];
-      document.getElementById("resultado").textContent = `El arreglo es: ${arreglo.join(', ')}`;
-    }
-  </script>
+            if (nombre.trim() === "") {
+                document.getElementById("error-nombre").textContent = "El nombre es obligatorio";
+                valido = false;
+            } else {
+                document.getElementById("error-nombre").textContent = "";
+            }
+
+            if (email.trim() === "") {
+                document.getElementById("error-email").textContent = "El email es obligatorio";
+                valido = false;
+            } else {
+                document.getElementById("error-email").textContent = "";
+            }
+
+            if (valido) {
+                alert("Formulario enviado correctamente");
+            }
+        });
+    </script>
 </body>
 </html>

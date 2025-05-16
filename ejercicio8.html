@@ -60,27 +60,24 @@
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio9.html'">Ejercicio 9</button>
   </div>
-  <h1>Ejercicio 7: Objetos</h1>
-  <p>Descripción: En este ejercicio aprenderás a trabajar con objetos en JavaScript. Crearás un objeto con propiedades y métodos, y accederás a esos datos.</p>
+    <h1>Ejercicio 8: Objetos Literales</h1>
+    <div id="datos-usuario"></div>
 
-  <button onclick="mostrarInfo()">Mostrar información del objeto</button>
-  <p id="resultado"></p>
+    <script>
+        const usuario = {
+            nombre: "Carlos",
+            edad: 30,
+            profesion: "Desarrollador"
+        };
 
-  <script>
-    const persona = {
-      nombre: "Carlos",
-      edad: 25,
-      ciudad: "Bogotá",
-      saludar: function() {
-        return `Hola, mi nombre es ${this.nombre} y tengo ${this.edad} años.`;
-      }
-    };
-
-    function mostrarInfo() {
-      const mensaje = persona.saludar();
-      document.getElementById("resultado").textContent = mensaje;
-    }
-  </script>
+        document.getElementById("datos-usuario").innerHTML = `
+            <div class="usuario">
+                <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+                <p><strong>Edad:</strong> ${usuario.edad}</p>
+                <p><strong>Profesión:</strong> ${usuario.profesion}</p>
+            </div>
+        `;
+    </script>
 
 </body>
 </html>

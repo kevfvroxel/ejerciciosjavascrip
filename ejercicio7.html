@@ -60,22 +60,16 @@
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio8.html'">Ejercicio 8</button>
   </div>
-  <h1>Ejercicio 6: Funciones</h1>
-  <p>Descripción: En este ejercicio aprenderás a declarar y utilizar funciones en JavaScript. La función toma dos números como parámetros, realiza una operación matemática y devuelve el resultado.</p>
+    <h1>Ejercicio 7: Funciones Básicas</h1>
+    <button onclick="sumar()">Sumar 5 + 3</button>
+    <p id="resultado"></p>
 
-  <button onclick="calcular()">Calcular la suma de dos números</button>
-  <p id="resultado"></p>
-
-  <script>
-    function sumar(a, b) {
-      return a + b;
-    }
-
-    function calcular() {
-      const resultado = sumar(5, 7);
-      document.getElementById("resultado").textContent = `El resultado de la suma es: ${resultado}`;
-    }
-  </script>
+    <script>
+        function sumar() {
+            const resultado = 5 + 3;
+            document.getElementById("resultado").textContent = `Resultado: ${resultado}`;
+        }
+    </script>
 
 </body>
 </html>

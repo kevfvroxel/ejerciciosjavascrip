@@ -100,6 +100,21 @@
       color: var(--background-dark);
       transform: scale(1.05);
     }
+            body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        #resultado {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #2E7D32;
+        }
 
     @media (max-width: 600px) {
       .nav {
@@ -122,27 +137,19 @@
     <button onclick="location.href='ejercico12.html'">Ejercicio 12</button>
   </div>
 
-  <div class="card">
-    <h2>Ejercicio 11: Variables y Tipos de Datos</h2>
-    <h3>Objetivo</h3>
-    <p>
-      Aprender a declarar variables en JavaScript y comprender los diferentes tipos de datos (números, cadenas, booleanos).
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Resultado</h2>
-    <p>Haz clic en el botón para mostrar el tipo de dato de la variable:</p>
-    <button class="boton" onclick="mostrarTipoDato()">Mostrar Tipo de Dato</button>
+    <h1>Ejercicio 11: Área de un Rectángulo</h1>
+    <input type="number" id="base" placeholder="Base">
+    <input type="number" id="altura" placeholder="Altura"><br>
+    <button onclick="calcularArea()">Calcular Área</button>
     <p id="resultado"></p>
-  </div>
 
-  <script>
-    // Esta función muestra el tipo de dato de la variable "miNumero".
-    function mostrarTipoDato() {
-      let miNumero = 42;
-      document.getElementById("resultado").textContent = `El tipo de dato de la variable es: ${typeof miNumero}`;
-    }
-  </script>
+    <script>
+        function calcularArea() {
+            const base = parseFloat(document.getElementById("base").value);
+            const altura = parseFloat(document.getElementById("altura").value);
+            const area = base * altura;
+            document.getElementById("resultado").textContent = `Área: ${area}`;
+        }
+    </script>
 </body>
 </html>

@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ejercicio 1: Hola Mundo</title>
   <style>
+    /* 
+      🎨 VARIABLES CSS Y ESTILOS GLOBALES
+      -----------------------------------
+      - Se usan variables para colores, bordes y espaciados (reutilizables).
+      - Diseño oscuro (dark mode) con contraste accesible.
+    */
     :root {
       --primary-color: #00bcd4;
       --primary-hover: #008c9e;
@@ -46,6 +52,12 @@
       line-height: 1.5;
     }
 
+    /* 
+      🃏 TARJETA (CARD)
+      -----------------
+      - Contenedor con sombra, borde sutil y padding.
+      - Ancho máximo de 700px para mejor lectura.
+    */
     .card {
       background-color: var(--card-dark);
       border: 1px solid #2d3e50;
@@ -58,6 +70,12 @@
       text-align: center;
     }
 
+    /* 
+      🔘 BOTÓN PRINCIPAL
+      ------------------
+      - Efectos hover con transición suave.
+      - Cambia de color y se desplaza ligeramente hacia arriba.
+    */
     .boton {
       background-color: var(--primary-color);
       color: var(--text-light);
@@ -75,6 +93,12 @@
       transform: translateY(-2px);
     }
 
+    /* 
+      🧭 BARRA DE NAVEGACIÓN (NAV)
+      ----------------------------
+      - Botones con borde acentuado y efecto hover invertido.
+      - En móviles, se apilan verticalmente.
+    */
     .nav {
       display: flex;
       justify-content: center;
@@ -101,6 +125,11 @@
       transform: scale(1.05);
     }
 
+    /* 
+      📱 RESPONSIVE (MEDIA QUERIES)
+      -----------------------------
+      - En pantallas <600px, los botones de nav ocupan el 100% del ancho.
+    */
     @media (max-width: 600px) {
       .nav {
         flex-direction: column;
@@ -122,6 +151,21 @@
     <button onclick="location.href='ejercicio2.html'">Ejercicio 2</button>
   </div>
 
+ <!-- 
+    📚 EJERCICIO 1: HOLA MUNDO EN JAVASCRIPT
+    ------------------------------------------
+    Este ejercicio introduce la interacción básica entre HTML y JavaScript.
+    Al hacer clic en el botón, se ejecuta una función que muestra el mensaje
+    "¡Hola, mundo!" en pantalla. Es el primer paso para entender cómo vincular
+    eventos HTML con funciones en JS.
+
+    ✅ Conceptos aplicados:
+    - Variables CSS personalizadas (--primary-color, --background-dark, etc.)
+    - Diseño responsive con Flexbox y Media Queries
+    - Evento onclick en HTML
+    - Manipulación del DOM (document.getElementById)
+    - Estructura semántica con tarjetas (card) y navegación (nav)
+-->
   <div class="card">
     <h2>Ejercicio 1: Hola Mundo</h2>
     <h3>Objetivo</h3>
@@ -130,6 +174,11 @@
     </p>
   </div>
 
+  <!-- 
+    🎯 TARJETA DE RESULTADO
+    -----------------------
+    - Contiene el botón que ejecuta la función y muestra el mensaje.
+  -->
   <div class="card">
     <h2>Resultado</h2>
     <p>Haz clic en el botón para mostrar el mensaje:</p>
@@ -138,7 +187,12 @@
   </div>
 
   <script>
-    // Esta función muestra el mensaje "¡Hola, mundo!" en el párrafo con id="salida".
+    /* 
+      🚀 FUNCIÓN JAVASCRIPT
+      ---------------------
+      - Obtiene el elemento con id="salida" y cambia su texto.
+      - Usa document.getElementById para manipular el DOM.
+    */
     function mostrarMensaje() {
       document.getElementById("salida").textContent = "¡Hola, mundo!";
     }

@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ejercicio 5: Bucles</title>
   <style>
+    /* 
+      🎨 VARIABLES CSS (REUTILIZABLES)
+      -------------------------------
+      - Define colores, bordes y espaciados para mantener consistencia.
+    */
     :root {
       --primary-color: #00bcd4;
       --primary-hover: #008c9e;
@@ -17,6 +22,12 @@
       --gap: 12px;
       --font-size: 16px;
     }
+
+    /* 
+      🖌 ESTILOS GLOBALES
+      ------------------
+      - Fondo oscuro, texto claro y contenido centrado.
+    */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,6 +45,11 @@
       color: var(--accent-color);
     }
 
+    /* 
+      🔘 ESTILOS PARA BOTÓN
+      --------------------
+      - Diseño interactivo con efecto hover.
+    */
     button {
       padding: 10px 20px;
       margin-top: 15px;
@@ -49,6 +65,11 @@
       background-color: var(--primary-hover);
     }
 
+    /* 
+      📜 ESTILOS PARA LISTA
+      --------------------
+      - Elimina los estilos por defecto de <ul> y personaliza los <li>.
+    */
     ul {
       margin-top: 20px;
       text-align: left;
@@ -64,17 +85,53 @@
   </style>
 </head>
 <body>
-    <div class="nav">
+  <!-- 
+    📚 EJERCICIO 5: BUCLES (FOR) EN JAVASCRIPT
+    ------------------------------------------
+    Este ejercicio demuestra el uso del bucle `for` para repetir una acción
+    un número determinado de veces (del 1 al 10). Cada iteración crea un
+    elemento de lista (<li>) con el número correspondiente.
+
+    ✅ Conceptos aplicados:
+    - Bucle `for` (inicialización, condición, incremento)
+    - Manipulación del DOM (createElement, appendChild)
+    - Limpieza de contenido previo (innerHTML = "")
+  -->
+
+  <!-- 
+    🧭 BARRA DE NAVEGACIÓN (SIMULADA)
+    --------------------------------
+    - Botones para cambiar entre ejercicios (en proyectos reales usar <a href>).
+  -->
+  <div class="nav">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio6.html'">Ejercicio 6</button>
   </div>
+
   <h1>Ejercicio 5: Bucles (for)</h1>
+
+  <!-- 
+    📝 DESCRIPCIÓN DEL EJERCICIO
+    ----------------------------
+    - Explicación del objetivo del ejercicio.
+  -->
   <p>Descripción: En este ejercicio, aprenderás a usar el bucle `for` en JavaScript para repetir una acción múltiples veces. El código muestra los números del 1 al 10 en una lista, utilizando un bucle.</p>
   
+  <!-- 
+    🎯 INTERFAZ DE USUARIO
+    ----------------------
+    - Botón para ejecutar la función y lista para mostrar resultados.
+  -->
   <button onclick="mostrarNumeros()">Mostrar números del 1 al 10</button>
   <ul id="resultado"></ul>
 
   <script>
+    /* 
+      🚀 FUNCIÓN: MOSTRAR NÚMEROS CON BUCLE FOR
+      -----------------------------------------
+      - Crea una lista de números del 1 al 10 mediante un bucle.
+      - Cada iteración genera un nuevo elemento <li> y lo añade al <ul>.
+    */
     function mostrarNumeros() {
       const lista = document.getElementById("resultado");
       lista.innerHTML = ""; // Limpiar contenido previo
@@ -86,6 +143,5 @@
       }
     }
   </script>
-
 </body>
 </html>

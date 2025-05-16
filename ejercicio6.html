@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejercicio 9: Array</title>
+  <title>Ejercicio 6: Arrays</title>
   <style>
+    /* 
+      🎨 VARIABLES CSS (REUTILIZABLES)
+      -------------------------------
+      - Define colores, bordes y espaciados para mantener consistencia.
+    */
     :root {
       --primary-color: #00bcd4;
       --primary-hover: #008c9e;
@@ -17,6 +22,12 @@
       --gap: 12px;
       --font-size: 16px;
     }
+
+    /* 
+      🖌 ESTILOS GLOBALES
+      ------------------
+      - Fondo oscuro, texto claro y contenido centrado.
+    */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,6 +45,11 @@
       color: var(--accent-color);
     }
 
+    /* 
+      🔘 ESTILOS PARA BOTÓN
+      --------------------
+      - Diseño interactivo con efecto hover.
+    */
     button {
       padding: 10px 20px;
       margin-top: 15px;
@@ -49,6 +65,11 @@
       background-color: var(--primary-hover);
     }
 
+    /* 
+      📜 ESTILOS PARA LISTA
+      --------------------
+      - Elimina los estilos por defecto de <ul> y personaliza los <li>.
+    */
     ul {
       margin-top: 20px;
       list-style: none;
@@ -63,19 +84,57 @@
   </style>
 </head>
 <body>
-    <div class="nav">
+  <!-- 
+    📚 EJERCICIO 6: ARRAYS EN JAVASCRIPT
+    -------------------------------------
+    Este ejercicio demuestra el uso de arrays (arreglos) en JavaScript.
+    Se crea un arreglo de números, se recorre con un bucle for y se muestra
+    cada elemento en una lista desordenada (<ul>).
+
+    ✅ Conceptos aplicados:
+    - Declaración y uso de arrays
+    - Recorrido de arrays con for
+    - Manipulación del DOM (createElement, appendChild)
+    - Limpieza de contenido previo (innerHTML = "")
+  -->
+
+  <!-- 
+    🧭 BARRA DE NAVEGACIÓN (SIMULADA)
+    --------------------------------
+    - Botones para cambiar entre ejercicios (en proyectos reales usar <a href>).
+  -->
+  <div class="nav">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio7.html'">Ejercicio 7</button>
   </div>
-  <h1>Ejercicio 6: Array</h1>
+
+  <h1>Ejercicio 6: Arrays</h1>
+
+  <!-- 
+    📝 DESCRIPCIÓN DEL EJERCICIO
+    ----------------------------
+    - Explicación del objetivo del ejercicio.
+  -->
   <p>Descripción: En este ejercicio aprenderás a trabajar con arreglos (arrays) en JavaScript. Crearás un arreglo de números, los recorrerás y mostrarás el resultado.</p>
 
+  <!-- 
+    🎯 INTERFAZ DE USUARIO
+    ----------------------
+    - Botón para ejecutar la función y lista para mostrar resultados.
+  -->
   <button onclick="mostrarArray()">Mostrar arreglo</button>
   <ul id="resultado"></ul>
 
   <script>
+    /* 
+      🚀 FUNCIÓN: MOSTRAR ARRAY
+      -------------------------
+      - Crea un array de números y los muestra en una lista.
+      - Usa un bucle for para recorrer el array.
+      - Cada iteración genera un nuevo elemento <li> con el valor del array.
+    */
     function mostrarArray() {
-      const numeros = [10, 20, 30, 40, 50];
+      const numeros = [10, 20, 30, 40, 50]; // Declaración del array
       const lista = document.getElementById("resultado");
       lista.innerHTML = ""; // Limpiar contenido previo
 
@@ -86,6 +145,5 @@
       }
     }
   </script>
-
 </body>
 </html>

@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejercicio 6: Funciones</title>
+  <title>Ejercicio 7: Funciones Básicas</title>
   <style>
+    /* 
+      🎨 VARIABLES CSS (REUTILIZABLES)
+      -------------------------------
+      - Define colores, bordes y espaciados para mantener consistencia.
+    */
     :root {
       --primary-color: #00bcd4;
       --primary-hover: #008c9e;
@@ -17,6 +22,12 @@
       --gap: 12px;
       --font-size: 16px;
     }
+
+    /* 
+      🖌 ESTILOS GLOBALES
+      ------------------
+      - Fondo oscuro, texto claro y contenido centrado.
+    */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,6 +45,11 @@
       color: var(--accent-color);
     }
 
+    /* 
+      🔘 ESTILOS PARA BOTÓN
+      --------------------
+      - Diseño interactivo con efecto hover.
+    */
     button {
       padding: 10px 20px;
       margin-top: 15px;
@@ -49,27 +65,95 @@
       background-color: var(--primary-hover);
     }
 
+    /* 
+      📝 ESTILOS PARA RESULTADO Y DESCRIPCIÓN
+      --------------------------------------
+      - Texto grande para destacar el resultado.
+      - Descripción con margen inferior.
+    */
     p {
-      margin-top: 20px;
+      margin: 10px 0;
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    #resultado {
       font-size: 20px;
+      color: var(--accent-color);
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: var(--card-dark);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin: 20px 0;
+      width: 100%;
+      max-width: 700px;
     }
   </style>
 </head>
 <body>
-    <div class="nav">
+  <!-- 
+    📚 EJERCICIO 7: FUNCIONES BÁSICAS EN JAVASCRIPT
+    ----------------------------------------------
+    Este ejercicio demuestra cómo crear y llamar funciones en JavaScript.
+    La función sumar() realiza una operación matemática simple y muestra
+    el resultado en el DOM.
+
+    ✅ Conceptos aplicados:
+    - Declaración de funciones
+    - Operaciones aritméticas básicas
+    - Manipulación del DOM (textContent)
+    - Eventos onclick en HTML
+  -->
+
+  <!-- 
+    🧭 BARRA DE NAVEGACIÓN (SIMULADA)
+    --------------------------------
+    - Botones para cambiar entre ejercicios (en proyectos reales usar <a href>).
+  -->
+  <div class="nav">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio8.html'">Ejercicio 8</button>
   </div>
-    <h1>Ejercicio 7: Funciones Básicas</h1>
-    <button onclick="sumar()">Sumar 5 + 3</button>
-    <p id="resultado"></p>
 
-    <script>
-        function sumar() {
-            const resultado = 5 + 3;
-            document.getElementById("resultado").textContent = `Resultado: ${resultado}`;
-        }
-    </script>
+  <h1>Ejercicio 7: Funciones Básicas</h1>
 
+  <!-- 
+    📝 DESCRIPCIÓN DEL EJERCICIO
+    ----------------------------
+    - Explicación detallada de lo que hace el ejercicio y qué conceptos aplica.
+  -->
+  <div class="card">
+    <p>Este ejercicio demuestra el uso básico de funciones en JavaScript. Una función es un bloque de código reutilizable que realiza una tarea específica. En este caso:</p>
+    <p>1. Se define una función llamada <code>sumar()</code> que realiza la operación 5 + 3.</p>
+    <p>2. Al hacer clic en el botón, se ejecuta esta función.</p>
+    <p>3. El resultado (8) se muestra en pantalla usando manipulación del DOM.</p>
+    <p><strong>Conceptos clave:</strong> declaración de funciones, operadores aritméticos, eventos click, manipulación del DOM.</p>
+  </div>
+
+  <!-- 
+    🎯 INTERFAZ DE USUARIO
+    ----------------------
+    - Botón para ejecutar la función y párrafo para mostrar resultados.
+  -->
+  <button onclick="sumar()">Sumar 5 + 3</button>
+  <p id="resultado"></p>
+
+  <script>
+    /* 
+      🚀 FUNCIÓN: SUMAR
+      -----------------
+      - Realiza una suma simple y muestra el resultado en el DOM.
+      - Usa template strings para formatear el texto.
+    */
+    function sumar() {
+      const resultado = 5 + 3;
+      document.getElementById("resultado").textContent = `Resultado: ${resultado}`;
+    }
+  </script>
 </body>
 </html>

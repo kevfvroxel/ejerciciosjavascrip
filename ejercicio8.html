@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejercicio 7: Objetos</title>
+  <title>Ejercicio 8: Objetos Literales</title>
   <style>
+    /* 
+      🎨 VARIABLES CSS (REUTILIZABLES)
+      -------------------------------
+      - Define colores, bordes y espaciados para mantener consistencia.
+    */
     :root {
       --primary-color: #00bcd4;
       --primary-hover: #008c9e;
@@ -17,6 +22,12 @@
       --gap: 12px;
       --font-size: 16px;
     }
+
+    /* 
+      🖌 ESTILOS GLOBALES
+      ------------------
+      - Fondo oscuro, texto claro y contenido centrado.
+    */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,6 +45,11 @@
       color: var(--accent-color);
     }
 
+    /* 
+      🔘 ESTILOS PARA BOTÓN
+      --------------------
+      - Diseño interactivo con efecto hover.
+    */
     button {
       padding: 10px 20px;
       margin-top: 15px;
@@ -49,35 +65,109 @@
       background-color: var(--primary-hover);
     }
 
-    p {
+    /* 
+      📝 ESTILOS PARA TARJETA DE USUARIO
+      ---------------------------------
+      - Diseño para mostrar los datos del objeto usuario.
+    */
+    .usuario {
+      background-color: var(--card-dark);
+      padding: 20px;
+      border-radius: var(--border-radius);
       margin-top: 20px;
-      font-size: 20px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .usuario p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .descripcion {
+      background-color: var(--card-dark);
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin-bottom: 20px;
+      max-width: 700px;
     }
   </style>
 </head>
 <body>
-    <div class="nav">
+  <!-- 
+    📚 EJERCICIO 8: OBJETOS LITERALES EN JAVASCRIPT
+    ----------------------------------------------
+    Este ejercicio demuestra cómo crear y utilizar objetos literales en JavaScript.
+    Se define un objeto 'usuario' con propiedades y se muestran sus valores en el DOM.
+
+    ✅ Conceptos aplicados:
+    - Creación de objetos literales
+    - Propiedades de objetos (clave-valor)
+    - Template strings para formatear HTML
+    - Manipulación del DOM con innerHTML
+  -->
+
+  <!-- 
+    🧭 BARRA DE NAVEGACIÓN (SIMULADA)
+    --------------------------------
+    - Botones para cambiar entre ejercicios (en proyectos reales usar <a href>).
+  -->
+  <div class="nav">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio9.html'">Ejercicio 9</button>
   </div>
-    <h1>Ejercicio 8: Objetos Literales</h1>
-    <div id="datos-usuario"></div>
 
-    <script>
-        const usuario = {
-            nombre: "Carlos",
-            edad: 30,
-            profesion: "Desarrollador"
-        };
+  <h1>Ejercicio 8: Objetos Literales</h1>
 
-        document.getElementById("datos-usuario").innerHTML = `
-            <div class="usuario">
-                <p><strong>Nombre:</strong> ${usuario.nombre}</p>
-                <p><strong>Edad:</strong> ${usuario.edad}</p>
-                <p><strong>Profesión:</strong> ${usuario.profesion}</p>
-            </div>
-        `;
-    </script>
+  <!-- 
+    📝 DESCRIPCIÓN DEL EJERCICIO
+    ----------------------------
+    - Explicación detallada de lo que hace el ejercicio y qué conceptos aplica.
+  -->
+  <div class="descripcion">
+    <p>Este ejercicio muestra cómo trabajar con objetos literales en JavaScript. Un objeto es una colección de propiedades (clave-valor) que representan características de una entidad.</p>
+    <p><strong>Características implementadas:</strong></p>
+    <ul>
+      <li>Creación de un objeto <code>usuario</code> con propiedades: nombre, edad y profesión</li>
+      <li>Acceso a las propiedades del objeto usando notación de punto</li>
+      <li>Mostrar los datos del objeto en el DOM usando template strings</li>
+    </ul>
+    <p><strong>Nota:</strong> Los objetos son fundamentales para organizar y estructurar datos en JavaScript.</p>
+  </div>
 
+  <!-- 
+    🎯 ÁREA DE RESULTADOS
+    ---------------------
+    - Aquí se mostrarán los datos del objeto usuario.
+  -->
+  <div id="datos-usuario"></div>
+
+  <script>
+    /* 
+      🚀 OBJETO LITERAL: USUARIO
+      --------------------------
+      - Define un objeto con tres propiedades.
+      - Las propiedades pueden ser de cualquier tipo (string, número, etc.)
+    */
+    const usuario = {
+      nombre: "Carlos",
+      edad: 30,
+      profesion: "Desarrollador"
+    };
+
+    /* 
+      📌 MOSTRAR DATOS EN EL DOM
+      -------------------------
+      - Usa template strings para crear HTML dinámico.
+      - Accede a las propiedades del objeto con ${usuario.propiedad}
+    */
+    document.getElementById("datos-usuario").innerHTML = `
+      <div class="usuario">
+        <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+        <p><strong>Edad:</strong> ${usuario.edad}</p>
+        <p><strong>Profesión:</strong> ${usuario.profesion}</p>
+      </div>
+    `;
+  </script>
 </body>
 </html>

@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ejercicio 4: Condicionales</title>
   <style>
+    /* 
+      🎨 VARIABLES CSS (REUTILIZABLES)
+      -------------------------------
+      - Define colores, bordes y espaciados para mantener consistencia.
+    */
     :root {
       --primary-color: #00bcd4;
       --primary-hover: #008c9e;
@@ -17,6 +22,12 @@
       --gap: 12px;
       --font-size: 16px;
     }
+
+    /* 
+      🖌 ESTILOS GLOBALES
+      ------------------
+      - Fondo oscuro, texto claro y contenido centrado.
+    */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,6 +45,11 @@
       color: var(--accent-color);
     }
 
+    /* 
+      🎯 ESTILOS PARA INPUT Y BOTÓN
+      ----------------------------
+      - Diseño coherente para elementos interactivos.
+    */
     input, button {
       padding: 10px;
       margin-top: 10px;
@@ -52,6 +68,11 @@
       background-color: var(--primary-hover);
     }
 
+    /* 
+      💡 ÁREA DE RESULTADOS
+      --------------------
+      - Destaca el texto con color acentuado.
+    */
     #resultado {
       margin-top: 20px;
       font-size: 20px;
@@ -60,24 +81,69 @@
   </style>
 </head>
 <body>
-    <div class="nav">
+  <!-- 
+    📚 EJERCICIO 4: CONDICIONALES EN JAVASCRIPT
+    -------------------------------------------
+    Este ejercicio demuestra el uso de estructuras condicionales (if/else) en JavaScript.
+    El usuario ingresa su edad y el programa determina si es mayor o menor de edad,
+    incluyendo validación básica de entrada.
+
+    ✅ Conceptos aplicados:
+    - Condicionales if/else
+    - Validación de entrada con isNaN()
+    - Manipulación del DOM (textContent)
+    - Eventos onclick en HTML
+  -->
+
+  <!-- 
+    🧭 BARRA DE NAVEGACIÓN (SIMULADA)
+    --------------------------------
+    - Botones para cambiar entre ejercicios (en proyectos reales usar <a href>).
+  -->
+  <div class="nav">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio5.html'">Ejercicio 5</button>
   </div>
+
   <h1>Verifica tu Edad</h1>
+
+  <!-- 
+    📝 DESCRIPCIÓN DEL EJERCICIO
+    ----------------------------
+    - Explicación del objetivo del ejercicio.
+  -->
   <p>Descripción: Este ejercicio se enfoca en el uso de estructuras condicionales (`if`, `else`) en JavaScript para verificar si un número (en este caso, la edad de una persona) cumple con ciertas condiciones. El código verifica si la persona es mayor o menor de edad.</p>
   
+  <!-- 
+    🎯 INTERFAZ DE USUARIO
+    ----------------------
+    - Input para ingresar la edad y botón para verificar.
+  -->
   <p>Introduce tu edad y te diremos si eres mayor de edad:</p>
   <input type="number" id="edad" placeholder="Escribe tu edad" />
   <button onclick="verificarEdad()">Verificar</button>
 
+  <!-- 
+    📌 ÁREA DE RESULTADOS
+    ---------------------
+    - Muestra el resultado de la verificación.
+  -->
   <div id="resultado"></div>
 
   <script>
+    /* 
+      🚀 FUNCIÓN: VERIFICAR EDAD
+      --------------------------
+      - Obtiene la edad ingresada por el usuario.
+      - Valida si es un número válido.
+      - Evalúa si es mayor o menor de edad.
+    */
     function verificarEdad() {
+      // Obtiene el valor del input y lo convierte a número entero
       const edad = parseInt(document.getElementById('edad').value);
       const resultado = document.getElementById('resultado');
 
+      // Validación y condicionales
       if (isNaN(edad)) {
         resultado.textContent = "Por favor, introduce un número válido.";
       } else if (edad >= 18) {
@@ -87,6 +153,5 @@
       }
     }
   </script>
-
 </body>
 </html>

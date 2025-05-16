@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ejercicio 2: Variables</title>
   <style>
+    /* 
+      🎨 VARIABLES CSS (REUTILIZABLES)
+      -------------------------------
+      - Colores, bordes y espaciados definidos para consistencia.
+    */
     :root {
       --primary-color: #00bcd4;
       --primary-hover: #008c9e;
@@ -33,7 +38,17 @@
       margin-bottom: 10px;
       color: var(--accent-color);
     }
+        h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
 
+    /* 
+      🃏 TARJETA (CARD)
+      -----------------
+      - Contenedor con sombra y borde sutil.
+    */
     .card {
       background-color: var(--card-dark);
       border: 1px solid #2d3e50;
@@ -46,6 +61,11 @@
       text-align: center;
     }
 
+    /* 
+      🔘 BOTÓN PRINCIPAL
+      ------------------
+      - Efectos hover con transición suave.
+    */
     button {
       background-color: var(--primary-color);
       color: var(--text-light);
@@ -62,6 +82,11 @@
       transform: translateY(-2px);
     }
 
+    /* 
+      🧭 BARRA DE NAVEGACIÓN (NAV)
+      ---------------------------
+      - Botones con estilo "outline" y efecto hover invertido.
+    */
     .nav {
       display: flex;
       justify-content: center;
@@ -90,36 +115,68 @@
   </style>
 </head>
 <body>
-  <h1>Ejercicio 2: Variables</h1>
+  <h1>Bloque 1: Principiantes</h1>
+
+  <!-- 
+    🧭 MENÚ DE NAVEGACIÓN
+    ----------------------
+    - Simula navegación entre ejercicios (en un proyecto real usar <a href>).
+  -->
   <div class="nav">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio3.html'">Ejercicio 3</button>
   </div>
 
+  <!-- 
+    📚 TARJETA DE OBJETIVO
+    ----------------------
+    - Explica el propósito del ejercicio.
+  -->
   <div class="card">
     <h2>Ejercicio 2: Variables</h2>
     <h3>Objetivo</h3>
     <p>
-      Aprender cómo utilizar variables en JavaScript para almacenar información y mostrarla en la página.
+         Este ejercicio enseña cómo declarar y usar variables en JavaScript (let y const).
+    Al hacer clic en el botón, se muestran tres variables (nombre, edad y ciudad)
+    formateadas en HTML dentro del div#resultado.
     </p>
   </div>
 
+<!-- 
+    📚 EJERCICIO 2: VARIABLES EN JAVASCRIPT
+    ---------------------------------------
+    Este ejercicio enseña cómo declarar y usar variables en JavaScript (let y const).
+    Al hacer clic en el botón, se muestran tres variables (nombre, edad y ciudad)
+    formateadas en HTML dentro del div#resultado.
+
+    ✅ Conceptos aplicados:
+    - Variables (let vs const) y template strings (``)
+    - Manipulación del DOM con innerHTML
+    - Estructura semántica con tarjetas (card)
+    - Reutilización de estilos CSS con variables personalizadas
+-->
   <div class="card">
     <h2>Resultado</h2>
     <button onclick="mostrarVariables()">Mostrar Variables</button>
-
     <div id="resultado"></div>
   </div>
 
   <script>
+    /* 
+      🚀 FUNCIÓN: MOSTRAR VARIABLES
+      ----------------------------
+      - Declara variables (let y const) y las muestra usando template strings.
+      - Usa innerHTML para renderizar etiquetas <strong>.
+    */
     function mostrarVariables() {
       let nombre = "Carlos";
       const edad = 28;
       const ciudad = "Medellín";
-      document.getElementById("resultado").innerHTML = 
-        `<strong>Nombre:</strong> ${nombre} <br>
-         <strong>Edad:</strong> ${edad} años <br>
-         <strong>Ciudad:</strong> ${ciudad}`;
+      document.getElementById("resultado").innerHTML = `
+        <strong>Nombre:</strong> ${nombre} <br>
+        <strong>Edad:</strong> ${edad} años <br>
+        <strong>Ciudad:</strong> ${ciudad}
+      `;
     }
   </script>
 </body>

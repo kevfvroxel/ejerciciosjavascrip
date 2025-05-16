@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ejercicio 3: Operadores Aritméticos</title>
   <style>
+    /* 
+      🎨 VARIABLES CSS (REUTILIZABLES)
+      -------------------------------
+      - Define colores, bordes y espaciados para mantener consistencia.
+    */
     :root {
       --primary-color: #00bcd4;
       --primary-hover: #008c9e;
@@ -17,6 +22,12 @@
       --gap: 12px;
       --font-size: 16px;
     }
+
+    /* 
+      🖌 ESTILOS GLOBALES
+      ------------------
+      - Fondo oscuro, texto claro y contenido centrado.
+    */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,6 +45,17 @@
       color: var(--accent-color);
     }
 
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    /* 
+      🃏 TARJETA (CARD)
+      -----------------
+      - Contenedor con sombra, borde sutil y máximo ancho de 700px.
+    */
     .card {
       background-color: var(--card-dark);
       border: 1px solid #2d3e50;
@@ -46,6 +68,11 @@
       text-align: center;
     }
 
+    /* 
+      🔘 BOTÓN PRINCIPAL
+      ------------------
+      - Efectos hover con transición suave (color y movimiento).
+    */
     button {
       background-color: var(--primary-color);
       color: var(--text-light);
@@ -55,6 +82,7 @@
       font-size: var(--font-size);
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 15px;
     }
 
     button:hover {
@@ -64,14 +92,46 @@
   </style>
 </head>
 <body>
-    <div class="nav">
+  <h1>Bloque 1: Principiantes</h1>
+  <!-- 
+    📚 EJERCICIO 3: OPERADORES ARITMÉTICOS
+    --------------------------------------
+    Este ejercicio demuestra el uso de operadores aritméticos en JavaScript.
+    Se realizan cálculos básicos (suma, resta, multiplicación, división y módulo)
+    con dos números fijos (a = 12, b = 5) y se muestran los resultados en pantalla.
+
+    ✅ Conceptos aplicados:
+    - Operadores aritméticos (+, -, *, /, %)
+    - Método toFixed() para redondear decimales
+    - Template strings (``) para formatear texto
+    - Manipulación del DOM con textContent
+  -->
+
+  <!-- 
+    🧭 BARRA DE NAVEGACIÓN (SIMULADA)
+    --------------------------------
+    - Botones para cambiar entre ejercicios (en proyectos reales usar <a href>).
+  -->
+
+  <div class="nav">
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='ejercicio4.html'">Ejercicio 4</button>
   </div>
+  <div class="card">
+    <h2>Ejercicio 3: Operadores Aritméticos</h2>
 
-  <h1>Ejercicio 3: Operadores Aritméticos</h1>
-  <p>Descripción: En este ejercicio, aprenderás a usar los operadores aritméticos básicos en JavaScript. Se muestran las operaciones de suma, resta, multiplicación, división y módulo entre dos números.</p>
-
+    <!-- 
+      📝 DESCRIPCIÓN DEL EJERCICIO
+      ----------------------------
+      - Explicación del objetivo (fuera de una card para diferenciarla del resultado).
+    -->
+    <p>Descripción: En este ejercicio, aprenderás a usar los operadores aritméticos básicos en JavaScript. Se muestran las operaciones de suma, resta, multiplicación, división y módulo entre dos números.</p>
+  </div>
+  <!-- 
+    🎯 TARJETA DE RESULTADOS
+    ------------------------
+    - Muestra los resultados de las operaciones aritméticas.
+  -->
   <div class="card">
     <h2>Resultado</h2>
     <p id="suma"></p>
@@ -82,14 +142,16 @@
   </div>
 
   <script>
+    // Declaración de variables
     let a = 12;
     let b = 5;
 
+    // Operaciones aritméticas y muestra de resultados
     document.getElementById("suma").textContent = `Suma: ${a} + ${b} = ${a + b}`;
     document.getElementById("resta").textContent = `Resta: ${a} - ${b} = ${a - b}`;
     document.getElementById("multiplicacion").textContent = `Multiplicación: ${a} * ${b} = ${a * b}`;
-    document.getElementById("division").textContent = `División: ${a} / ${b} = ${(a / b).toFixed(2)}`;
-    document.getElementById("modulo").textContent = `Módulo: ${a} % ${b} = ${a % b}`;
+    document.getElementById("division").textContent = `División: ${a} / ${b} = ${(a / b).toFixed(2)}`; // toFixed(2) redondea a 2 decimales
+    document.getElementById("modulo").textContent = `Módulo: ${a} % ${b} = ${a % b}`; // % devuelve el residuo de la división
   </script>
 </body>
 </html>

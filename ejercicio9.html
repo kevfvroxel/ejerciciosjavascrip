@@ -55,16 +55,18 @@
     <button onclick="location.href='index.html'">Inicio</button>
     <button onclick="location.href='bloque1.html'">bloque 1</button>
   </div>
-  <h1>Ejercicio 8: Eventos</h1>
-  <p>Descripción: En este ejercicio aprenderás a manejar eventos en JavaScript. Usarás un evento de clic para cambiar el color de fondo de la página cuando se haga clic en un botón.</p>
+     <h1>Ejercicio 9: Eventos del DOM</h1>
+    <p id="texto">Haz clic para cambiar mi color.</p>
+    <button onclick="cambiarColor()">Cambiar Color</button>
 
-  <button onclick="cambiarColor()">Cambiar color de fondo</button>
-
-  <script>
-    function cambiarColor() {
-      document.body.style.backgroundColor = "#3498db";
-    }
-  </script>
+    <script>
+        function cambiarColor() {
+            const texto = document.getElementById("texto");
+            const colores = ["#FF5733", "#33FF57", "#3357FF", "#F333FF"];
+            const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+            texto.style.color = colorAleatorio;
+        }
+    </script>
 
 </body>
 </html>
